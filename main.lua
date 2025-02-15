@@ -35,8 +35,8 @@ local settingsTable = {
 	}
 }
 
-local HttpService = game:GetService("HttpService")
-local RunService = game:GetService("RunService")
+local HttpService = cloneref(game:GetService("HttpService"))
+local RunService = cloneref(game:GetService("RunService"))
 
 -- Environment Check
 local useStudio = RunService:IsStudio() or false
@@ -782,7 +782,7 @@ local function makeDraggable(object, dragObject, enableTaptic, tapticOffset)
 	local offset = Vector2.zero
 	local screenGui = object:FindFirstAncestorWhichIsA("ScreenGui")
 	if screenGui and screenGui.IgnoreGuiInset then
-		offset += game:GetService('GuiService'):GetGuiInset()
+		offset += cloneref(game:GetService('GuiService')):GetGuiInset()
 	end
 
 	local function connectFunctions()
