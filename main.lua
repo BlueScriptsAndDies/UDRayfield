@@ -596,6 +596,7 @@ local UserInputService = cloneref(game:GetService("UserInputService"))
 local TweenService = cloneref(game:GetService("TweenService"))
 local Players = cloneref(game:GetService("Players"))
 local CoreGui = cloneref(game:GetService("CoreGui"))
+local HiddenUI = cloneref(gethui()) or nil
 
 -- Interface Management
 
@@ -627,8 +628,8 @@ until buildAttempts >= 2
 
 Rayfield.Enabled = false
 
-if gethui then
-	Rayfield.Parent = gethui()
+if HiddenUI then
+	Rayfield.Parent = HiddenUI
 elseif syn and syn.protect_gui then 
 	syn.protect_gui(Rayfield)
 	Rayfield.Parent = CoreGui
@@ -638,8 +639,8 @@ elseif not useStudio then
 	Rayfield.Parent = CoreGui
 end
 
-if gethui then
-	for _, Interface in ipairs(gethui():GetChildren()) do
+if HiddenUI then
+	for _, Interface in ipairs(HiddenUI:GetChildren()) do
 		if Interface.Name == Rayfield.Name and Interface ~= Rayfield then
 			Interface.Enabled = false
 			Interface.Name = "Rayfield-Old"
@@ -1694,8 +1695,8 @@ function RayfieldLibrary:CreateWindow(Settings)
 
 			KeyUI.Enabled = true
 
-			if gethui then
-				KeyUI.Parent = gethui()
+			if HiddenUI then
+				KeyUI.Parent = HiddenUI
 			elseif syn and syn.protect_gui then 
 				syn.protect_gui(KeyUI)
 				KeyUI.Parent = CoreGui
@@ -1705,8 +1706,8 @@ function RayfieldLibrary:CreateWindow(Settings)
 				KeyUI.Parent = CoreGui
 			end
 
-			if gethui then
-				for _, Interface in ipairs(gethui():GetChildren()) do
+			if HiddenUI then
+				for _, Interface in ipairs(HiddenUI:GetChildren()) do
 					if Interface.Name == KeyUI.Name and Interface ~= KeyUI then
 						Interface.Enabled = false
 						Interface.Name = "KeyUI-Old"
