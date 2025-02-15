@@ -45,7 +45,7 @@ local settingsCreated = false
 local cachedSettings
 local prompt = useStudio and require(script.Parent.prompt) or loadstring(game:HttpGet('https://raw.githubusercontent.com/SiriusSoftwareLtd/Sirius/refs/heads/request/prompt.lua'))()
 local request = (syn and syn.request) or (fluxus and fluxus.request) or (http and http.request) or http_request or request
-local cloneref = cloneref or function(ref) return ref; end
+local cloneref = cloneref or function(ref) return ref end
 
 local function loadSettings()
 	local file = nil
