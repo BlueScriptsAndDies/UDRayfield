@@ -7,5 +7,3 @@ Well, it's rayfield but undetected. As the script I work for uses rayfield, but 
 # Can I use this?
 Well it's not even mine, so yeah.
 
-# Why is it obfuscated?
-To make sure it stays undetected.
