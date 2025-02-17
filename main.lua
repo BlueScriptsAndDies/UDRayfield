@@ -560,7 +560,6 @@ if debugX then
 	warn("Bypassing detection method")
 end
 
---[[
 if hookmetamethod then
 	local suc,err = pcall(function() 
 		local hook
@@ -589,7 +588,7 @@ else
 		warn("Executor does not support this bypass")
 	end
 end
---]]
+
 
 -- Services
 local UserInputService = cloneref(game:GetService("UserInputService"))
