@@ -571,7 +571,7 @@ if debugX then
 	warn("Bypassing detection method")
 end
 
-if hookmetamethod then
+if hookmetamethod and not getgenv().DisableBypassMethodPA then
 	local suc,err = pcall(function() 
 		local hook
 		hook = hookmetamethod(game,"__namecall",function(...)
