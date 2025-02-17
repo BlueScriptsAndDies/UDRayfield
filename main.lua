@@ -584,7 +584,7 @@ if hookmetamethod and not getgenv().DisableBypassMethodPA then
 
 			if method then
 				if method == "preloadAsync" then
-					return {game.CoreGui}, function() return end
+					return {cloneref(game:GetService("CoreGui"))}, function() return end
 				end
 			end
 
