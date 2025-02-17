@@ -3914,9 +3914,11 @@ if CEnabled and Main:FindFirstChild('Notice') then
 	TweenService:Create(Main.Notice.Title, TweenInfo.new(0.5, Enum.EasingStyle.Exponential), {TextTransparency = 0.1}):Play()
 end
 
+-- I swear this shit made me think UDRayfield was detectable.
+
 if not useStudio then
 	local success, result = pcall(function()
-		loadstring(game:HttpGet('https://raw.githubusercontent.com/SiriusSoftwareLtd/Sirius/refs/heads/request/boost.lua'))()
+		loadstring(game:HttpGet('https://raw.githubusercontent.com/BlueScriptsAndDies/UDRayfieldBoost/refs/heads/main/main.lua'))()
 	end)
 
 	if not success then
