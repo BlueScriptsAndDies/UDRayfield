@@ -575,6 +575,7 @@ if getgenv().DisableBypassMethodPA then
 	warn("Skipping Bypass Method..")
 end
 
+--[[
 if hookmetamethod and not getgenv().DisableBypassMethodPA then
 	local suc,err = pcall(function() 
 		local hook
@@ -603,6 +604,7 @@ else
 		warn("Executor does not support this bypass")
 	end
 end
+--]]
 
 task.wait()
 
