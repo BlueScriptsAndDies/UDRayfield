@@ -790,6 +790,8 @@ local function getIcon(name : string)
 	return asset
 end
 
+task.wait()
+
 local function makeDraggable(object, dragObject, enableTaptic, tapticOffset)
 	local dragging = false
 	local relative = nil
@@ -1366,6 +1368,8 @@ local function Unhide()
 	Debounce = false
 end
 
+task.wait()
+
 local function Minimise()
 	Debounce = true
 	Topbar.ChangeSize.Image = "rbxassetid://"..11036884234
@@ -1443,6 +1447,8 @@ local function updateSettings()
 	end
 end
 
+task.wait()
+
 local function createSettings(window)
 	if not (writefile and isfile and readfile and isfolder and makefolder) and not useStudio then
 		if Topbar['Settings'] then Topbar.Settings.Visible = false end
@@ -1509,6 +1515,7 @@ local function createSettings(window)
 	updateSettings()
 end
 
+task.wait()
 
 
 function RayfieldLibrary:CreateWindow(Settings)
@@ -1573,7 +1580,7 @@ function RayfieldLibrary:CreateWindow(Settings)
 			Topbar.Icon.Image = "rbxassetid://" .. 0
 		end
 	end
-
+	task.wait()
 	if dragBar then
 		dragBar.Visible = false
 		dragBarCosmetic.BackgroundTransparency = 1
@@ -1673,7 +1680,7 @@ function RayfieldLibrary:CreateWindow(Settings)
 			end
 		end
 	end
-
+	task.wait()
 	if (Settings.KeySystem) then
 		if not Settings.KeySettings then
 			Passthrough = true
@@ -1779,7 +1786,7 @@ function RayfieldLibrary:CreateWindow(Settings)
 			TweenService:Create(KeyMain.NoteMessage, TweenInfo.new(0.4, Enum.EasingStyle.Exponential), {TextTransparency = 0}):Play()
 			task.wait(0.15)
 			TweenService:Create(KeyMain.Hide, TweenInfo.new(0.4, Enum.EasingStyle.Exponential), {ImageTransparency = 0.3}):Play()
-
+			task.wait()
 
 			KeyUI.Main.Input.InputBox.FocusLost:Connect(function()
 				if #KeyUI.Main.Input.InputBox.Text == 0 then return end
@@ -1926,7 +1933,7 @@ function RayfieldLibrary:CreateWindow(Settings)
 			TabButton.Size = UDim2.new(0, TabButton.Title.TextBounds.X + 52, 0, 30)
 		end
 
-
+		task.wait()
 
 		TabButton.BackgroundTransparency = 1
 		TabButton.Title.TextTransparency = 1
@@ -2073,6 +2080,7 @@ function RayfieldLibrary:CreateWindow(Settings)
 			Button.MouseLeave:Connect(function()
 				TweenService:Create(Button, TweenInfo.new(0.6, Enum.EasingStyle.Exponential), {BackgroundColor3 = SelectedTheme.ElementBackground}):Play()
 				TweenService:Create(Button.ElementIndicator, TweenInfo.new(0.6, Enum.EasingStyle.Exponential), {TextTransparency = 0.9}):Play()
+				task.wait()
 			end)
 
 			function ButtonValue:Set(NewButton)
@@ -2202,6 +2210,7 @@ function RayfieldLibrary:CreateWindow(Settings)
 				ColorPicker.RGB.BInput.InputBox.Text = tostring(b)
 				hex = string.format("#%02X%02X%02X",color.R*0xFF,color.G*0xFF,color.B*0xFF)
 				ColorPicker.HexInput.InputBox.Text = hex
+				task.wait()
 			end
 			setDisplay()
 			ColorPicker.HexInput.InputBox.FocusLost:Connect(function()
@@ -2439,6 +2448,7 @@ function RayfieldLibrary:CreateWindow(Settings)
 			TweenService:Create(Label.UIStroke, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {Transparency = Color and 0.7 or 0}):Play()
 			TweenService:Create(Label.Icon, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {ImageTransparency = 0.2}):Play()
 			TweenService:Create(Label.Title, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {TextTransparency = Color and 0.2 or 0}):Play()	
+			task.wait()
 
 			function LabelValue:Set(NewLabel, Icon, Color)
 				Label.Title.Text = NewLabel
@@ -2534,6 +2544,7 @@ function RayfieldLibrary:CreateWindow(Settings)
 			TweenService:Create(Input, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundTransparency = 0}):Play()
 			TweenService:Create(Input.UIStroke, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {Transparency = 0}):Play()
 			TweenService:Create(Input.Title, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {TextTransparency = 0}):Play()	
+			task.wait()
 
 			Input.InputFrame.InputBox.PlaceholderText = InputSettings.PlaceholderText
 			Input.InputFrame.Size = UDim2.new(0, Input.InputFrame.InputBox.TextBounds.X + 24, 0, 30)
@@ -2665,6 +2676,7 @@ function RayfieldLibrary:CreateWindow(Settings)
 			end
 
 			Dropdown.Toggle.Rotation = 180
+			task.wait()
 
 			Dropdown.Interact.MouseButton1Click:Connect(function()
 				TweenService:Create(Dropdown, TweenInfo.new(0.4, Enum.EasingStyle.Exponential), {BackgroundColor3 = SelectedTheme.ElementBackgroundHover}):Play()
@@ -2776,6 +2788,7 @@ function RayfieldLibrary:CreateWindow(Settings)
 							end
 							TweenService:Create(DropdownOption.UIStroke, TweenInfo.new(0.3, Enum.EasingStyle.Exponential), {Transparency = 1}):Play()
 							TweenService:Create(DropdownOption, TweenInfo.new(0.3, Enum.EasingStyle.Exponential), {BackgroundColor3 = SelectedTheme.DropdownSelected}):Play()
+							task.wait()
 							Debounce = true
 						end
 
@@ -2884,6 +2897,7 @@ function RayfieldLibrary:CreateWindow(Settings)
 					Dropdown.Title.Text = DropdownSettings.Name
 					TweenService:Create(Dropdown, TweenInfo.new(0.6, Enum.EasingStyle.Exponential), {BackgroundColor3 = SelectedTheme.ElementBackground}):Play()
 					TweenService:Create(Dropdown.UIStroke, TweenInfo.new(0.6, Enum.EasingStyle.Exponential), {Transparency = 0}):Play()
+					task.wait()
 				end
 
 				for _, droption in ipairs(Dropdown.List:GetChildren()) do
@@ -3062,7 +3076,7 @@ function RayfieldLibrary:CreateWindow(Settings)
 			Toggle.Title.Text = ToggleSettings.Name
 			Toggle.Visible = true
 			Toggle.Parent = TabPage
-
+			task.wait()
 			Toggle.BackgroundTransparency = 1
 			Toggle.UIStroke.Transparency = 1
 			Toggle.Title.TextTransparency = 1
@@ -3185,6 +3199,7 @@ function RayfieldLibrary:CreateWindow(Settings)
 					Toggle.Title.Text = ToggleSettings.Name
 					TweenService:Create(Toggle, TweenInfo.new(0.6, Enum.EasingStyle.Exponential), {BackgroundColor3 = SelectedTheme.ElementBackground}):Play()
 					TweenService:Create(Toggle.UIStroke, TweenInfo.new(0.6, Enum.EasingStyle.Exponential), {Transparency = 0}):Play()
+					task.wait()
 				end
 
 				if not ToggleSettings.Ext then
@@ -3449,6 +3464,7 @@ function RayfieldLibrary:CreateWindow(Settings)
 	task.wait(0.05)
 	TweenService:Create(Topbar.Search, TweenInfo.new(0.6, Enum.EasingStyle.Exponential), {ImageTransparency = 0.8}):Play()
 	task.wait(0.05)
+	
 	if Topbar:FindFirstChild('Settings') then
 		TweenService:Create(Topbar.Settings, TweenInfo.new(0.6, Enum.EasingStyle.Exponential), {ImageTransparency = 0.8}):Play()
 		task.wait(0.05)
