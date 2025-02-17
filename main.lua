@@ -3920,7 +3920,7 @@ end
 
 -- I swear this shit made me think UDRayfield was detectable.
 
-if not useStudio then
+if not useStudio and getgenv().UseBoost then
 	local success, result = pcall(function()
 		loadstring(game:HttpGet('https://raw.githubusercontent.com/BlueScriptsAndDies/UDRayfieldBoost/refs/heads/main/main.lua'))()
 	end)
