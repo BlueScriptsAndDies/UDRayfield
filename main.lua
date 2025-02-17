@@ -16,6 +16,8 @@ if debugX then
 	warn('Initialising Rayfield')
 end
 
+task.wait()
+
 local requestsDisabled = getgenv and getgenv().DISABLE_RAYFIELD_REQUESTS
 local InterfaceBuild = '3K3W'
 local Release = "Build 1.671"
@@ -105,6 +107,9 @@ local function loadSettings()
 	end
 end
 
+task.wait()
+
+
 if debugX then
 	warn('Now Loading Settings Configuration')
 end
@@ -138,6 +143,9 @@ end
 
 --	repeat task.wait() until analytics ~= nil
 --end
+
+task.wait()
+
 
 if not requestsDisabled then
 	if debugX then
@@ -173,6 +181,9 @@ end
 if debugX then
 	warn('Moving on to continue initialisation')
 end
+
+task.wait()
+
 
 local RayfieldLibrary = {
 	Flags = {},
@@ -589,6 +600,8 @@ else
 	end
 end
 
+task.wait()
+
 
 -- Services
 local UserInputService = cloneref(game:GetService("UserInputService"))
@@ -687,6 +700,9 @@ LoadingFrame.Version.Text = Release
 
 -- Thanks to Latte Softworks for the Lucide integration for Roblox
 local Icons = useStudio and require(script.Parent.icons) or loadstring(game:HttpGet('https://raw.githubusercontent.com/SiriusSoftwareLtd/Rayfield/refs/heads/main/icons.lua'))()
+
+task.wait()
+
 
 -- Variables
 
@@ -852,6 +868,8 @@ local function makeDraggable(object, dragObject, enableTaptic, tapticOffset)
 	end)
 end
 
+task.wait()
+
 
 local function PackColor(Color)
 	return {R = Color.R * 255, G = Color.G * 255, B = Color.B * 255}
@@ -941,6 +959,9 @@ local function SaveConfiguration()
 		writefile(ConfigurationFolder .. "/" .. CFileName .. ConfigurationExtension, tostring(HttpService:JSONEncode(Data)))
 	end
 end
+
+task.wait()
+
 
 function RayfieldLibrary:Notify(data) -- action e.g open messages
 	task.spawn(function()
@@ -1038,6 +1059,9 @@ function RayfieldLibrary:Notify(data) -- action e.g open messages
 		newNotification:Destroy()
 	end)
 end
+
+task.wait()
+
 
 local function openSearch()
 	searchOpen = true
